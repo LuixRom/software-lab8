@@ -37,3 +37,47 @@ Para nuestro problema el más adecuado es Event-Driven Architecture (EDA) junto 
 ![imagen](./img/image1.png)
 
 ---
+
+## 4. Evidencia de pytest
+![imagen](./img/image.png)
+
+---
+
+## 6. Principios de Diseño Aplicados
+
+- **Alta cohesión**  cada clase tiene una única responsabilidad.
+- **Bajo acoplamiento**  producer y consumer no se conocen entre sí, se comunican solo a través de RabbitMQ.
+- **Modularidad**  cada servicio es un paquete Python independiente.
+- **Escalabilidad**  múltiples instancias del consumer pueden correr en paralelo sin cambiar el código.
+
+---
+
+## 7. Métricas de Calidad — SonarQube
+
+| Métrica | Resultado | Requerido |
+|---|---|---|
+| Reliability | A | - |
+| Security | A | - |
+| Maintainability | A | - |
+| Duplications | 0.0% | ≤ 2% |
+| Coverage | 88.5% | ≥ 85% |
+
+---
+
+## 8. Instalación y Ejecución
+
+```bash
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Correr tests
+pytest tests/ --cov=restaurant_service --cov=rewards_service --cov-report=xml --cov-report=term -v
+
+# Ejecutar producer
+python restaurant_service/producer.py
+
+# Ejecutar consumer
+python rewards_service/consumer.py
+```
+
+
