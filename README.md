@@ -1,4 +1,4 @@
-# Documento de Arquitectura - Sistema de Recompesas por Cenas
+# Documento de Arquitectura - Sistema de Recompensas por Cenas
 
 **Curso** Ingeniería de Software
 
@@ -20,7 +20,7 @@ Para nuestro problema el más adecuado es Event-Driven Architecture (EDA) junto 
 
 2. Se tendría un volumen de transacciones muy alto por naturaleza. con este patrón logramos que el broker absorba todos los picos y el consumidor procesa a su propio ritmo sin colapsar.
 
-3. El productor y el consumidor tienen tienen responsabilidades completamente distintas y no deberían reconocerse, el restaurante solo sabe que ocurrió una cena.
+3. El productor y el consumidor tienen responsabilidades completamente distintas y no deberían reconocerse, el restaurante solo sabe que ocurrió una cena.
 
 - Clean Architecture
 
@@ -28,7 +28,7 @@ Para nuestro problema el más adecuado es Event-Driven Architecture (EDA) junto 
 
 2. La lógica de calcular los puntos no sabe nada de RabbitMQ, lo que permite hacer pruebas sin el broker real.
 
-3. Podemos hacer pruebas sin necesidad de la conexión real al servidor de la univerdidad para funcionar.
+3. Podemos hacer pruebas sin necesidad de la conexión real al servidor de la universidad para funcionar.
 
 ---
 
@@ -40,6 +40,27 @@ Para nuestro problema el más adecuado es Event-Driven Architecture (EDA) junto 
 
 ## 4. Evidencia de pytest
 ![imagen](./img/image.png)
+
+---
+
+## 5. Estructura del Proyecto
+
+```
+software-lab8/
+├── restaurant_service/
+│   ├── __init__.py
+│   └── producer.py
+├── rewards_service/
+│   ├── __init__.py
+│   └── consumer.py
+├── tests/
+│   ├── __init__.py
+│   └── test_rewards.py
+├── img/
+├── requirements.txt
+├── sonar-project.properties
+└── README.md
+```
 
 ---
 
