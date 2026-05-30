@@ -1,0 +1,6 @@
+projectKey=Anthony_Romero_t8
+serverUrl=https://sonarqube.ingsoftware.lat
+serverVersion=26.5.0.122743
+dashboardUrl=https://sonarqube.ingsoftware.lat/dashboard?id=Anthony_Romero_t8
+ceTaskId=c77b0118-9aa4-47f4-9bed-6947c97f697d
+ceTaskUrl=https://sonarqube.ingsoftware.lat/api/ce/task?id=c77b0118-9aa4-47f4-9bed-6947c97f697d

@@ -62,6 +62,8 @@ Para nuestro problema el más adecuado es Event-Driven Architecture (EDA) junto 
 | Duplications | 0.0% | ≤ 2% |
 | Coverage | 88.5% | ≥ 85% |
 
+Enlace: https://sonarqube.ingsoftware.lat/dashboard?id=Anthony_Romero_t8
+
 ---
 
 ## 8. Instalación y Ejecución
