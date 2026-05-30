@@ -37,7 +37,7 @@ class RewardsAccountRepository:
         if card not in self._accounts: self._accounts[card] = {"points": 0, "cashback": 0.0}
         self._accounts[card]["points"]+= result.points
         self._accounts[card]["cashback"]+= result.cashback
-        print(f"[✓] Cuenta actualizada para {card} | " f"+{result.points} puntos | " f"+{result.cashback} cashback | " f"Total: {self._accounts[card]}")
+        print(f"[✓] Cuenta actualizada para {card} | +{result.points} puntos | +{result.cashback} cashback | Total: {self._accounts[card]}")
 
     def get(self, card_number: str) -> dict: return self._accounts.get(card_number, {"points": 0, "cashback": 0.0})
 
@@ -93,7 +93,4 @@ if __name__ == "__main__":
         consumer.start()
     except KeyboardInterrupt:
         print("\n[*] Consumer detenido.")
-        try:
-            sys.exit(0)
-        except SystemExit:
-            os._exit(0)
+        sys.exit(0)

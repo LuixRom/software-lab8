@@ -13,7 +13,7 @@ class TestDinnerEvent(unittest.TestCase):
     def test_crear_evento_con_timestamp_automatico(self):
         event = DinnerEvent(amount=100.0, card_number="4111", restaurant_code="R01")
         self.assertIsNotNone(event.timestamp)
-        self.assertTrue(len(event.timestamp) > 0)
+        self.assertGreater(len(event.timestamp), 0)
 
     def test_crear_evento_con_timestamp_manual(self):
         event = DinnerEvent(amount=100.0, card_number="4111", restaurant_code="R01", timestamp="2026-01-01")
