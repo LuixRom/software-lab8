@@ -2,6 +2,7 @@ import json
 import pika
 from dataclasses import dataclass, asdict
 from datetime import datetime
+import os
 
 QUEUE_NAME = "dinner_events"
 
@@ -51,7 +52,13 @@ class DinnerEventPublisher:
             connection.close()
 
 if __name__ == "__main__":
-    conn = RabbitMQConnection(host="213.199.42.57", port=5672, user="students", password="Ut3c2026", vhost="/")
+    conn = RabbitMQConnection(
+        host=os.getenv("RABBITMQ_HOST", "213.199.42.57"),
+        port=int(os.getenv("RABBITMQ_PORT", "5672")),
+        user=os.getenv("RABBITMQ_USER", "students"),
+        password=os.getenv("RABBITMQ_PASSWORD", "Ut3c2026"),
+        vhost=os.getenv("RABBITMQ_VHOST", "/")
+    )
     publisher = DinnerEventPublisher(conn.parameters, QUEUE_NAME)
 
     event = DinnerEvent(

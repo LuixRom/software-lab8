@@ -72,8 +72,16 @@ class DinnerEventConsumer:
         channel.start_consuming()
 
 if __name__ == "__main__":
-    credentials = pika.PlainCredentials("students", "Ut3c2026")
-    params = pika.ConnectionParameters("213.199.42.57", 5672, "/", credentials)
+    credentials = pika.PlainCredentials(
+        os.getenv("RABBITMQ_USER", "students"),
+        os.getenv("RABBITMQ_PASSWORD", "Ut3c2026")
+    )
+    params = pika.ConnectionParameters(
+        os.getenv("RABBITMQ_HOST", "213.199.42.57"),
+        int(os.getenv("RABBITMQ_PORT", "5672")),
+        os.getenv("RABBITMQ_VHOST", "/"),
+        credentials
+    )
 
     consumer = DinnerEventConsumer(
         connection_params=params,
